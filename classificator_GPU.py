@@ -36,11 +36,11 @@ params = {
     "scale_pos_weight": [1, 2]
 }
 
-# Создаем базовый классификатор с поддержкой GPU
+# Создаем базовый классификатор с поддержкой GPU (новый синтаксис)
 base_classifier = XGBClassifier(
     random_state=42,
-    tree_method='gpu_hist',  # Основной параметр для использования GPU
-    gpu_id=0,  # ID GPU устройства
+    device="cuda",  # Новый параметр для использования GPU
+    tree_method='hist',  # Можно оставить 'hist' или использовать 'auto'
     objective="binary:logistic",
     eval_metric="logloss"
 )
@@ -71,4 +71,4 @@ print(f"\nТочность модели: {accuracy:.3f}")
 
 # Дополнительная информация о использовании GPU
 print(f"\n=== Информация о GPU ===")
-print(f"Используемый метод деревьев: {best_model.get_params()['tree_method']}")
+print(f"Используемое устройство: {best_model.get_params()['device']}")
