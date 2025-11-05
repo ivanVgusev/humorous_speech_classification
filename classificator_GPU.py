@@ -39,9 +39,7 @@ params = {
 # Создаем базовый классификатор с поддержкой GPU
 base_classifier = XGBClassifier(
     random_state=42,
-    n_jobs=-1,  # Используем все CPU ядра для предобработки
-    tree_method='gpu_hist',  # Используем GPU для построения деревьев
-    predictor='gpu_predictor',  # Используем GPU для предсказаний
+    tree_method='gpu_hist',  # Основной параметр для использования GPU
     gpu_id=0,  # ID GPU устройства
     objective="binary:logistic",
     eval_metric="logloss"
@@ -74,4 +72,3 @@ print(f"\nТочность модели: {accuracy:.3f}")
 # Дополнительная информация о использовании GPU
 print(f"\n=== Информация о GPU ===")
 print(f"Используемый метод деревьев: {best_model.get_params()['tree_method']}")
-print(f"Используемый метод предсказания: {best_model.get_params()['predictor']}")
