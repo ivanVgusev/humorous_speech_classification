@@ -30,13 +30,17 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 params = {
-    "n_estimators": [100, 300, 500],
+    "n_estimators": [100, 300],
     "max_depth": [3, 5, 8],
     "learning_rate": [0.01, 0.05, 0.1],
     "subsample": [0.8, 1.0],
     "colsample_bytree": [0.8, 1.0],
     "gamma": [0, 0.1, 0.3],
-    "min_child_weight": [1, 3, 5]
+    "min_child_weight": [1, 3, 5],
+    # L2-регуляризация
+    "reg_lambda": [0.5, 1, 2],
+    # L1-регуляризация
+    "reg_alpha": [0, 0.1, 0.5]
 }
 
 grid = GridSearchCV(
