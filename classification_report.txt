@@ -1,0 +1,18 @@
+Лучшие параметры: {'colsample_bytree': 1.0, 'learning_rate': 0.01, 'max_depth': 8, 'n_estimators': 300, 'scale_pos_weight': 1, 'subsample': 0.8}
+Выполняем предсказание...
+
+=== Отчёт по классификации ===
+              precision    recall  f1-score   support
+
+           0      0.811     0.967     0.882       270
+           1      0.400     0.090     0.146        67
+
+    accuracy                          0.792       337
+   macro avg      0.605     0.528     0.514       337
+weighted avg      0.729     0.792     0.736       337
+
+
+Точность модели: 0.792
+
+=== Информация о GPU ===
+Используемое устройство: cuda
