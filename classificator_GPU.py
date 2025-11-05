@@ -36,11 +36,11 @@ params = {
     "scale_pos_weight": [1, 2]
 }
 
-# Создаем базовый классификатор с поддержкой GPU (новый синтаксис)
+# Создаем базовый классификатор с поддержкой GPU
 base_classifier = XGBClassifier(
     random_state=42,
-    device="cuda",  # Новый параметр для использования GPU
-    tree_method='hist',  # Можно оставить 'hist' или использовать 'auto'
+    device="cuda",  # Используем GPU
+    tree_method='hist',
     objective="binary:logistic",
     eval_metric="logloss"
 )
@@ -61,6 +61,8 @@ grid.fit(X_train_res, y_train_res)
 print("\nЛучшие параметры:", grid.best_params_)
 best_model = grid.best_estimator_
 
+# Вариант 1: Явно указываем устройство для предсказания
+print("Выполняем предсказание...")
 y_pred = best_model.predict(X_test_scaled)
 
 print("\n=== Отчёт по классификации ===")
