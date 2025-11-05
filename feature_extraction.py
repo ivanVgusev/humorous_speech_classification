@@ -6,9 +6,8 @@ import opensmile
 import pandas as pd
 from progress_monitor import progress_bar
 
-# Инициализация OpenSMILE
 smile = opensmile.Smile(
-    feature_set=opensmile.FeatureSet.emobase,
+    feature_set=opensmile.FeatureSet.ComParE_2016,
     feature_level=opensmile.FeatureLevel.Functionals
 )
 
@@ -31,7 +30,7 @@ for dirpath, _, elements in os.walk(directory):
         grid = tgt.io.read_textgrid(ann_fpath)
         syntagms_tier = grid.get_tier_by_name("syntagm (j/n)")
         ic_centre = grid.get_tier_by_name("syntagm (j/n)")
-        feat = ic_centre
+        feat = syntagms_tier
 
         audio, sr = librosa.load(audio_fpath, sr=None)
         progress_bar_total = len(feat) - 1
