@@ -106,6 +106,7 @@ weighted avg      0.619     0.619     0.619       134
 'max_depth': 5, 'min_child_weight': 5, 
 'n_estimators': 100, 'reg_alpha': 0.1, 
 'reg_lambda': 2, 'subsample': 0.8}
+
 === Отчёт по классификации ===
               precision    recall  f1-score   support
 

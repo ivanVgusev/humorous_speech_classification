@@ -11,9 +11,8 @@ smile = opensmile.Smile(
     feature_level=opensmile.FeatureLevel.Functionals
 )
 
-directory = "/Users/ivanguseff/VScode/SEW/material"
+directory = "material"
 data = []
-
 for dirpath, _, elements in os.walk(directory):
     for file_index, element in enumerate(elements):
         if not element.endswith(".TextGrid"):
@@ -43,11 +42,14 @@ for dirpath, _, elements in os.walk(directory):
 
             if annotation not in ["j", "n"]:
                 continue
-
+            
             segment = audio[start_sample:end_sample]
 
             # Сохраняем во временный файл в директории
+            # for Mac + Linux
             tmp_path = "/tmp/temp.wav"
+            # for Windows
+            # tmp_path = r"C:\Users\gusev-i\VScode\humorous_seech_classification\homorous_speech_classification\temp.wav"
             sf.write(tmp_path, segment, sr)
 
             # Извлекаем признаки
