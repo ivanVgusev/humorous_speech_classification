@@ -5,6 +5,11 @@ from sklearn.metrics import classification_report, accuracy_score
 from xgboost import XGBClassifier
 from collections import Counter
 
+"""
+Hyperparameters grid-search using GPU
+"""
+
+
 df = pd.read_csv("features.csv")
 X = df.drop(columns=["label", "file", "start", "end"])
 y = df["label"]
@@ -49,7 +54,8 @@ grid = GridSearchCV(
         n_jobs=-1,
         objective="binary:logistic",
         eval_metric="aucpr",
-        tree_method="hist"
+        tree_method="hist",
+        device="cuda"
     ),
     param_grid=params,
     cv=3,
