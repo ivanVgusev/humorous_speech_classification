@@ -15,7 +15,6 @@ count_class_1 = sum(y == 1)
 # Случайно выбираем столько же 0, сколько есть 1
 df_class_0 = df[df["label"] == 0].sample(count_class_1, random_state=42)
 df_class_1 = df[df["label"] == 1]
-print(len(df_class_1))
 
 # Объединяем и перемешиваем
 df_balanced = pd.concat([df_class_0, df_class_1]).sample(frac=1, random_state=42)

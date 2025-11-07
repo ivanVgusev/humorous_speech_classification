@@ -47,9 +47,9 @@ for dirpath, _, elements in os.walk(directory):
 
             # Сохраняем во временный файл в директории
             # for Mac + Linux
-            tmp_path = "/tmp/temp.wav"
+            # tmp_path = "/tmp/temp.wav"
             # for Windows
-            # tmp_path = r"C:\Users\gusev-i\VScode\humorous_seech_classification\homorous_speech_classification\temp.wav"
+            tmp_path = r"C:\Users\gusev-i\VScode\humorous_seech_classification\homorous_speech_classification\temp.wav"
             sf.write(tmp_path, segment, sr)
 
             # Извлекаем признаки
